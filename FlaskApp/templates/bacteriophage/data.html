@@ -1,0 +1,15 @@
+{% extends 'bacteriophage/layout.html' %}
+<head>
+    <title>{% block title %}Data{% endblock title %}</title>
+</head>
+
+{% block content %}
+<div class="jumbotron">
+    <h2>Data</h2>
+    <p align="left" class="lead">The benchmark dataset contains 307 protein sequences which composed of 99
+        <a href="/bacteriophage/bact/">bact</a>
+        proteins and 208
+        <a href="/bacteriophage/non-bact/">non-bact</a>
+        proteins, respectively. </p>
+</div>
+{% endblock content %}

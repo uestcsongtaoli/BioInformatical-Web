@@ -1,0 +1,25 @@
+{% extends 'bacteriophage/layout.html' %}
+<head>
+    <title>{% block title %}About{% endblock title %}</title>
+</head>
+
+{% block content %}
+<div class="jumbotron">
+    <h2>Read me</h2>
+    <p align="left" class="lead">Users can enter one protein sequence or text contains multiple protein sequences in
+        FASTA format to the blank and click Submit button, the predict result will return to user. FASTA format is
+        introduced in About part in detail and click Example button will also show you demonstrations. In addition, this
+        part also describes our model and finally predict result. Datasets used in experiment can be downloaded through
+        Data button in home page. </p>
+
+    <h2>Note</h2>
+    <p align="left" class="style13">(1) For each submission, the number of protein sequences is limited at 100 or
+        less.</p>
+    <p align="left" class="style13">(2) The input sequences must be in FASTA format, i.e., each protein sequence should
+        start with a greater-than symbol (&quot; &gt; &quot;) in the first column. The words right after the &quot; &gt;
+        &quot; symbol in the single initial line are optional and only used for the purpose of identification and
+        description.</p>
+    <p align="left" class="style13">(3) If a query sequence contains any illegal character, the prediction will be
+        wrong.</p>
+</div>
+{% endblock content %}

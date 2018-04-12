@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>标题改这里</title>
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style type="text/css">
+
+	</style>
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body style="overflow-x:'hidden'>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<br / >
+			<br / >
+			<!-- <div class="panel panel-default">
+				<div class="panel-title"> -->
+			<div align="center">
+					<h1>PVPred: A sequence-based tool for identifying phage virion proteins</h1>
+			</div>
+			<div>
+				<div align="center">
+					<a role="button" data-toggle="collapse" href="#HELP" aria-expanded="false" aria-controls="HELP"><font size="3" >HELP</font></a> | <a role="button" data-toggle="collapse" href="#DATASETS" aria-expanded="false" aria-controls="DATASETS"><font size="3" >DATASETS</font></a>
+				</div>
+				<div class="collapse" id="HELP">
+					<div class="well col-md-8 col-md-offset-2">
+						The web-server PVPred was developed to identify the phage virion proteins based on the sequence information. The analysis of variance was used to seek optimized g-gap dipeptide. The anticipated overall success rates are 85.02% by using jackknife cross-validation. 75.76% phage virion proteins and 89.42% phage non-virion proteins can be correctly identified. All data can be downloaded from the <a role="button" data-toggle="collapse" href="#DATASETS" aria-expanded="false" aria-controls="DATASETS">Data</a> window of this web-server. <br />
+						<h2  align="center">Caveat</h2>
+						<br />
+						(1) For each submission, the number of protein sequences is limited at 100 or less;<br />
+						(2) The input sequences must be in FASTA format; i.e., each protein sequence should start with a greater-than symbol (" > ") in the first column. The words right after the " > " symbol in the single initial line are optional and only used for the purpose of identification and description.<br />
+						(3) If a query sequence contains any illegal character, the prediction will be stopped.<br />
+						<h2  align="center">Example</h2>
+						>VIR|P82889|CAPSD_BP<br />
+						MDFNPSEVASQVTNYIQAIAAAGVGVLALAIGLSAAWKYAKRFLKG<br />
+						>NON|P22499|BOF_BPP1<br />
+						MKKRYYTVKHGTLRALQEFADKHNVEVRREGGSKALRMYRPDGKWRTVVDFKTNSVPQGVRDRAFEEWEQIIIDNALLLNAD<br />
+					</div>
+				</div>
+				<div class="collapse" id="DATASETS">
+					<div class="well col-md-8 col-md-offset-2">
+						The benchmark dataset contains 307 phage proteins which are 99 virion proteins and 208 non-virion proteins. The sequence identity in the dataset is less 40%. <a href="Datasets.zip">Download</a>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default col-md-8 col-md-offset-2">
+				<h3>Enter the query <font color='red'>phage proteins</font> in FASTA format:</h3>
+				<div class="panel-body">
+					<form enctype="multipart/form-data" action="/home_zhaoxin/" method="POST">
+						<div class="form-group">
+							<textarea class="form-control" rows="6" id="input_textarea" name="input"></textarea>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-primary">Submit</button>
+							<button type="button" class="btn btn-danger" onclick='document.getElementById("input_textarea").value = ""'>Clear</button>
+						</div>
+					</form>
+					<div class="well" id="result">
+						result:{{ sequence }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

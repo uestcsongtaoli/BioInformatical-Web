@@ -1,0 +1,16 @@
+{% extends 'antioxidant/layout.html' %}
+
+<head>
+    <title>{% block title %}result{% endblock title %}</title>
+</head>
+
+{% block content %}
+  <div class="jumbotron">
+    <h2>Predicting Outcomes</h2>
+      <p align="left" class="lead">The Antioxidant class label is 0. In contrast, the non-antioxidant is 1.</p>
+      <p align="center" class="style13">{{ sequence }}</p>
+{#      <textarea class="form-control" name='userinput' rows="15">{{sequence}}</textarea>#}
+      <br>
+      <p><a class="btn btn-lg btn-success" href="/antioxidant/" role="button" name="back"> Back </a></p>
+  </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'antioxidant/layout.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h2>Example</h2>
+        <table style="table-layout:fixed;word-break: break-all; word-wrap: break-word;">
+            <tbody>
+                <tr>
+                  <td align="left"><P>&gt;<SPAN align="left" class="style13">anti_1</SPAN><br>
+                      MTKGILLGDKFPDFRAETNEGFIPSFYDWIGKDSWAILFSHPRDFTPVCTTELARLVQLAPEFNKRNVKLIGLSCDSAESHRKWVDDIMAVCKMKCNDGDTCCSGNKLPFPIIADENRFLATELGMMDPDERDENGNALTARCVFIIGPEKTLKLSILYPATTGRNFDEILRVVDSLQLTAVKLVATPVDWKDGDDCVVLPTIDDTEAKKLFGEKINTIELPSGKHYLRMVAHP
+                      <br>
+            &gt;<SPAN align="left" class="style13">nonanti_0</SPAN><br>
+                      MERPYACPVESCDRRFSRSADLTRHIRIHTGQKPFQCRICMRNFSRSDHLTTHIRTHTGEKPFACDICGRKFARSDERKRHTKIHLRQKD
+                      </P>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+
+    <h2>Note</h2>
+    <p align="left" class="style13">(1) For each submission, the number of protein sequences is limited at 100 or
+        less.</p>
+    <p align="left" class="style13">(2) The input sequences must be in FASTA format, i.e., each protein sequence should
+        start with a greater-than symbol (&quot; &gt; &quot;) in the first column. The words right after the &quot; &gt;
+        &quot; symbol in the single initial line are optional and only used for the purpose of identification and
+        description.</p>
+    <p align="left" class="style13">(3) If a query sequence contains any illegal character, the prediction will be
+        wrong.</p>
+</div>
+{% endblock content %}

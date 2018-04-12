@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+      <link href="{{ url_for('static', filename='jumbotron-narrow.css') }}" rel="stylesheet">
+
+    <title>About Us</title>
+<style type="text/css">
+    .btn-sm{
+        padding: 3px 6px;
+        font-size:10px;
+    }
+
+</style>
+      <style>
+
+
+          ul[_01] {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              background-color: #4CAF50;
+          }
+
+          li[_01] {
+              float: left;
+          }
+
+          li a[_01] {
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+          }
+
+.blue{
+  float:left;
+  width:50%;
+
+    height: 300px;
+}
+.red{
+  margin-left:150px;
+
+        height: 300px;
+}
+</style>
+  </head>
+
+
+  <body>
+
+  <div class="container">
+        <div class="header clearfix">
+            <img  src="{{ url_for('static', filename='images/BioInformation.jpg') }}" class="rounded float-left"  width="150" height="80"/>
+                <ul _01>
+                    <li _01 style="float:right"><a _01 href="/about">About</a></li>
+                    <li _01 style="float:right"><a _01 href="/">Home</a></li>
+                </ul>
+        </div>
+
+        <div class="jumbotron">
+            <p align="left">Our interests are to design and use computational approach to study protein. Now we mainly focus on the following fields:</p>
+            <p align="left">Developing machine learning methods to identify protein function and type</p>
+        </div>
+            {% block footer %}
+              <footer class="footer">
+                <p>&copy; 2017 Web Science Center,&nbsp;
+                <a class="grey-text text-lighten-3" href="http://www.ccse.uestc.edu.cn/">Computer Science and Engineering School</a>,&nbsp;
+                <a class="grey-text text-lighten-3" href="http://www.uestc.edu.cn/">UESTC</a>
+                </p>
+              </footer>
+            {% endblock footer %}
+
+
+  </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

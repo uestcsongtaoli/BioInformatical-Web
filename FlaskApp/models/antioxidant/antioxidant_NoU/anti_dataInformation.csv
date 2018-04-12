@@ -1,0 +1,3 @@
+﻿"numTrain: 1801, 250(pos)  1551(neg)"
+"num amino acid: 20,  20   20"
+"set(['A', 'C', 'E', 'D', 'G', 'F', 'I', 'H', 'K', 'M', 'L', 'N', 'Q', 'P', 'S', 'R', 'T', 'W', 'V', 'Y'])"
