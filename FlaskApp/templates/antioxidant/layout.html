@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
-    <title>{% block title %}A Cancerlectins Predictor{% endblock title %}</title>
+    <title>{% block title %}A IDAod Predictor{% endblock title %}</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -40,9 +40,9 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/antioxidant/">Home</a></li>
-            <li role="presentation"><a href="/antioxidant/data/">Data</a></li>
-            <li role="presentation"><a href="/antioxidant/about/">About</a></li>
+            <li role="presentation"><a href="/IDAod/">Home</a></li>
+            <li role="presentation"><a href="/IDAod/data/">Data</a></li>
+            <li role="presentation"><a href="/IDAod/about/">About</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Antioxidant Proteins Predictor</h3>
@@ -51,11 +51,11 @@
 
 
 
-    <form enctype="multipart/form-data" action="/antioxidant/result/" method="POST">
+    <form enctype="multipart/form-data" action="/IDAod/result/" method="POST">
         {% block content %}
         <div class="jumbotron">
 {#          <h2>A Neural Network Cancerlectins Predictor</h2>#}
-            <p class="lead"><small>Enter the query protein sequences in FASTA format (<a href="/antioxidant/example/">Example</a>)</small></p>
+            <p class="lead"><small>Enter the query protein sequences in FASTA format (<a href="/IDAod/example/">Example</a>)</small></p>
             <textarea class="form-control" name='antioxidant' rows="15"></textarea>
             <br>
             <p><input class="btn btn-lg btn-success" type="submit" value="Submit" id="button_submit" ></p>
@@ -65,7 +65,7 @@
     </form>
 
 
-    <p align="center" role="presentation"><a class="link" href="/antioxidant/">Close</a></p>
+    <p align="center" role="presentation"><a class="link" href="/">Close</a></p>
 
       {% block footer %}
       <footer class="footer">

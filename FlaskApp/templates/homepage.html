@@ -1,118 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<head>
+    <meta charset="UTF-8">
+    <title>生物信息学</title>
+    <link href="{{ url_for('static', filename="css/style.css") }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename="css/bootstrap.css") }}" rel="stylesheet">
+</head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body>
+<div class="head">
+    <div class="headImg"><img src="{{ url_for('static', filename="images/logo.png") }}"></div>
+    <div class="navBox">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="/about/">About</a></li>
+            <li role="presentation"><a href="">Contact us</a></li>
+            <li role="presentation" class="active"><a href="/">Home</a></li>
+        </ul>
+    </div>
+</div>
 
-      <link href="{{ url_for('static', filename='jumbotron-narrow.css') }}" rel="stylesheet">
+<div class="bannerImg">
+    <img src="{{ url_for('static', filename="images/banner.jpg") }}" alt="banner">
+</div>
+<div class="content">
+    <div class="linkBox">
 
-    <title>BioInformatics</title>
-      <style>
-            .btn-sm{
-                padding: 3px 6px;
-                font-size:10px;
-            }
+        <p><img src="{{ url_for('static', filename="images/antioxidant.jpeg") }}"></p>
+        <p class="brief" title="AntiOxidant AntiOxidant AntiOxidant AntiOxidant AntiOxidantAntiOxidant">AntiOxidant AntiOxidant AntiOxidant AntiOxidant AntiOxidantAntiOxidantAntiOxidantAntiOxidantAntiOxidantAntiOxidant</p>
+        <a href="/IDAod/"><button class="btn btn-info">IDAod</button></a>
+    </div>
+    <div class="linkBox">
+        <p><img src="{{ url_for('static', filename="images/1.jpg") }}"></p>
 
-          ul[_01] {
-              list-style-type: none;
-              margin: 0;
-              padding: 0;
-              overflow: hidden;
-              background-color: #4CAF50;
-          }
-
-          li[_01] {
-              float: left;
-          }
-
-          li a[_01] {
-              display: block;
-              color: white;
-              text-align: center;
-              padding: 14px 16px;
-              text-decoration: none;
-          }
-
-        .blue{
-          float:left;
-          width:50%;
-
-        }
-        .red{
-            {#float: right;#}
-            margin-left: 50%;
-        }
-      </style>
-  </head>
-
-
-  <body>
-    {% block container %}
-      <div class="container">
-
-
-          {% block header %}
-                <div class="header clearfix">
-                    <img  src="{{ url_for('static', filename='images/BioInformation.jpg') }}" class="rounded float-left"  width="150" height="80"/>
-
-                    <ul _01>
-                      <li _01 style="float:right"><a _01 href="/about">About</a></li>
-                      <li _01 style="float:right"><a _01 href="/">Home</a></li>
-                    </ul>
-                </div>
-          {% endblock %}
-
-
-          {% block content %}
-                <div class="jumbotron">
-                    <div class="blue">
-                          <ul class="list-unstyled">
-                              <li class="media my-4">
-                                <img class="align-self-center mr-3" src="{{ url_for('static', filename="images/antioxidant.jpeg") }}" alt="antioxidant image" width=60px height=60px>
-                                <h5 class="mt-0 mb-1"><a  href="/antioxidant/">AntiOxidant</a></h5>
-                              </li>
-
-                              <li class="media my-4">
-                                <img class="align-self-center mr-3" src="{{ url_for('static', filename="images/bacteriophage.png") }}" alt="bacteriophage image" width=60px height=60px>
-                                <h5 class="mt-0 mb-1"><a  href="/bacteriophage/">BacterioPhage</a></h5>
-                              </li>
-
-                              <li class="media my-4">
-                                <img class="align-self-center mr-3" src="{{ url_for('static', filename="images/cancerlectin.jpeg") }}" alt="cancerlectin image" width=60px height=60px>
-                                <h5 class="mt-0 mb-1"><a  href="/cancerlectin/">CancerLectin</a></h5>
-                              </li>
-                          </ul>
-                     </div>
-                    <div class="red" >
-                        <img  src="{{ url_for('static', filename='images/bioinformatics.gif') }}"   width=100% height="100%"/>
-                    </div>
-                </div>
-          {% endblock %}
-
-
-          {% block footer %}
-              <div>
-                <footer class="footer">
-                <p>&copy; 2017 Web Science Center,&nbsp;
-                <a class="grey-text text-lighten-3" href="http://www.ccse.uestc.edu.cn/">Computer Science and Engineering School</a>,&nbsp;
-                <a class="grey-text text-lighten-3" href="http://www.uestc.edu.cn/">UESTC</a>
-                </p>
-              </footer>
-              </div>
-
-          {% endblock %}
-
-      </div>
-
-    {% endblock %}
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+        <p class="brief">BacterioPhage BacterioPhage BacterioPhage Bacter BacterioPhage BacterioPhage BacterioPhage BacterioPhageBacterioPhage</p>
+        <a href="/bacteriophage/"><button class="btn btn-info">BacterioPhage</button></a>
+    </div>
+    <div class="linkBox">
+        <p><img src="{{ url_for('static', filename="images/2.jpg") }}"></p>
+        <p class="brief"> CancerLectinCancerLectinCancerLectin CancerLectin</p>
+        <a href="/cancerlectin/"><button class="btn btn-info">CancerLectin</button></a>
+    </div>
+</div>
+<div class="footer">
+    &copy; 2017 Web Science Center,&nbsp;
+    <a class="grey-text text-lighten-3" href="http://www.ccse.uestc.edu.cn/">Computer Science and Engineering School</a>,&nbsp;
+    <a class="grey-text text-lighten-3" href="http://www.uestc.edu.cn/">UESTC</a>
+</div>
+</body>
 </html>

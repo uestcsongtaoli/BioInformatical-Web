@@ -19,7 +19,8 @@ def home():
     except Exception as e:
         return(str(e))
 
-@app.route('/about')
+
+@app.route('/about/')
 def home_about():
     try:
         return render_template("about.html")

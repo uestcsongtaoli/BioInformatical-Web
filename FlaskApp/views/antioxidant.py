@@ -3,7 +3,7 @@ from FlaskApp import app
 from FlaskApp.models.antioxidant import t_sne
 
 
-@app.route('/antioxidant/', methods=['POST', 'GET'])
+@app.route('/IDAod/', methods=['POST', 'GET'])
 def antioxidant_homepage():
     try:
         return render_template("antioxidant/layout.html")
@@ -11,7 +11,7 @@ def antioxidant_homepage():
         return(str(e))
 
 
-@app.route('/antioxidant/about/')
+@app.route('/IDAod/about/')
 def antioxidant_about():
     try:
         return render_template("antioxidant/about.html")
@@ -19,7 +19,7 @@ def antioxidant_about():
         return(str(e))
 
 
-@app.route('/antioxidant/example/')
+@app.route('/IDAod/example/')
 def antioxidant_example():
     try:
         return render_template("antioxidant/example.html")
@@ -27,7 +27,7 @@ def antioxidant_example():
         return(str(e))
 
 
-@app.route('/antioxidant/data/')
+@app.route('/IDAod/data/')
 def antioxidant_data():
     try:
         return render_template("antioxidant/data.html")
@@ -35,7 +35,7 @@ def antioxidant_data():
         return(str(e))
 
 
-@app.route('/antioxidant/antioxidant/')
+@app.route('/IDAod/antioxidant/')
 def antioxidant_antioxidant():
     try:
         return render_template("antioxidant/antioxidant.html")
@@ -43,7 +43,7 @@ def antioxidant_antioxidant():
         return(str(e))
 
 
-@app.route('/antioxidant/non-antioxidant/')
+@app.route('/IDAod/non-antioxidant/')
 def antioxidant_non_antioxidant():
     try:
         return render_template("antioxidant/non-antioxidant.html")
@@ -51,7 +51,7 @@ def antioxidant_non_antioxidant():
         return(str(e))
 
 
-@app.route('/antioxidant/result/', methods=['POST', 'GET'])
+@app.route('/IDAod/result/', methods=['POST', 'GET'])
 def antioxidant_result():
     if request.method == "POST":
         with open(r'/var/www/FlaskApp/input_data/antioxidant.txt', 'w') as f:
