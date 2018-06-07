@@ -1,86 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
-
-    <title>{% block title %}A IDAod Predictor{% endblock title %}</title>
+{% extends "layout.html" %}
+<title>{% block title %}A IDAod Predictor{% endblock title %}</title>
 
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+ {% block content %}
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="{{ url_for('static', filename='assets/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+    <div class="jumbotron">
+        <div class="header clearfix">
+            <h3 class="text-muted">Antioxidant Proteins Predictor</h3>
+        </div>
+        <div class="btn-group" role="button" aria-label="...">
+                    <button type="button" class="btn btn-sm btn-default">
+                        <span class="glyphicon glyphicon-folder-open" aria-label="true"></span>
+                        <a href="/IDAod/data/">Data</a></button>
+                    <button type="button" class="btn btn-sm btn-default">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                        <a href="/IDAod/about/">About</a></button>
+        </div>
 
-    <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='jumbotron-narrow.css') }}" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <style>
-    .link { font-size:24px}
-    </style>
-  </head>
-
-  <body>
-
-    {% block container %}
-    <div class="container">
-
-      {% block header %}
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/IDAod/">Home</a></li>
-            <li role="presentation"><a href="/IDAod/data/">Data</a></li>
-            <li role="presentation"><a href="/IDAod/about/">About</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted">Antioxidant Proteins Predictor</h3>
-      </div>
-      {% endblock header %}
+          <form enctype="multipart/form-data" action="/IDAod/result/" method="POST">
 
 
-
-    <form enctype="multipart/form-data" action="/IDAod/result/" method="POST">
-        {% block content %}
-        <div class="jumbotron">
-{#          <h2>A Neural Network Cancerlectins Predictor</h2>#}
             <p class="lead"><small>Enter the query protein sequences in FASTA format (<a href="/IDAod/example/">Example</a>)</small></p>
             <textarea class="form-control" name='antioxidant' rows="15"></textarea>
             <br>
             <p><input class="btn btn-lg btn-success" type="submit" value="Submit" id="button_submit" ></p>
-        </div>
-        {% endblock content %}
 
     </form>
-
-
-    <p align="center" role="presentation"><a class="link" href="/">Close</a></p>
-
-      {% block footer %}
-      <footer class="footer">
-        <p>&copy; 2017 Web Science Center,&nbsp;
-        <a class="grey-text text-lighten-3" href="http://www.ccse.uestc.edu.cn/">Computer Science and Engineering School</a>,&nbsp;
-        <a class="grey-text text-lighten-3" href="http://www.uestc.edu.cn/">UESTC</a>
-        </p>
-      </footer>
-      {% endblock footer %}
-
     </div>
-    {% endblock container %}
-
-
-    <script src="{{ url_for('static', filename='assets/js/ie10-viewport-bug-workaround.js') }}"></script>
-
-  </body>
-</html>
+ {% endblock content %}

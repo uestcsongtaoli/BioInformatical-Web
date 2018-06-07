@@ -1,50 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
+
 <head>
-    <meta charset="UTF-8">
-    <title>生物信息学</title>
-    <link href="{{ url_for('static', filename="css/style.css") }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename="css/bootstrap.css") }}" rel="stylesheet">
+     <title>{% block title %}Bioinformatics{% endblock title %}</title>
 </head>
-
 <body>
-<div class="head">
-    <div class="headImg"><img src="{{ url_for('static', filename="images/logo.png") }}"></div>
-    <div class="navBox">
-        <ul class="nav nav-pills">
-            <li role="presentation"><a href="/about/">About</a></li>
-            <li role="presentation"><a href="">Contact us</a></li>
-            <li role="presentation" class="active"><a href="/">Home</a></li>
-        </ul>
-    </div>
-</div>
-
-<div class="bannerImg">
-    <img src="{{ url_for('static', filename="images/banner.jpg") }}" alt="banner">
-</div>
-<div class="content">
-    <div class="linkBox">
-
-        <p><img src="{{ url_for('static', filename="images/antioxidant.jpeg") }}"></p>
-        <p class="brief">AntiOxidant AntiOxidant AntiOxidant AntiOxidant AntiOxidantAntiOxidantAntiOxidantAntiOxidantAntiOxidantAntiOxidant</p>
-        <a href="/IDAod/"><button class="btn btn-info">IDAod</button></a>
-    </div>
-    <div class="linkBox">
-        <p><img src="{{ url_for('static', filename="images/1.jpg") }}"></p>
-
-        <p class="brief">BacterioPhage BacterioPhage BacterioPhage Bacter BacterioPhage BacterioPhage BacterioPhage BacterioPhageBacterioPhage</p>
-        <a href="/bacteriophage/"><button class="btn btn-info">BacterioPhage</button></a>
-    </div>
-    <div class="linkBox">
-        <p><img src="{{ url_for('static', filename="images/2.jpg") }}"></p>
-        <p class="brief"> CancerLectinCancerLectinCancerLectin CancerLectin</p>
-        <a href="/cancerlectin/"><button class="btn btn-info">CancerLectin</button></a>
-    </div>
-</div>
-<div class="footer">
-    &copy; 2017 Web Science Center,&nbsp;
-    <a class="grey-text text-lighten-3" href="http://www.ccse.uestc.edu.cn/">Computer Science and Engineering School</a>,&nbsp;
-    <a class="grey-text text-lighten-3" href="http://www.uestc.edu.cn/">UESTC</a>
-</div>
+    {% block content %}
+        <div class="jumbotron">
+            <p align="left" class="lead">
+                Our interests are to design and use computational approach to study protein.
+                    Now we mainly focus on the following fields:
+                    <br>Developing machine learning methods to identify protein function and type.
+            </p>
+        </div>
+    {% endblock content %}
 </body>
-</html>

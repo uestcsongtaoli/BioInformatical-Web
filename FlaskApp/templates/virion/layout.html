@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
-    <title>{% block title %}A Neural Network Cancerlectins Predictor{% endblock title %}</title>
+    <title>{% block title %}A virion Predictor{% endblock title %}</title>
 
 
     <!-- Bootstrap core CSS -->
@@ -40,23 +40,23 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/home/">Home</a></li>
-            <li role="presentation"><a href="/data/">Data</a></li>
-            <li role="presentation"><a href="/about/">About</a></li>
+            <li role="presentation"><a href="/virion/">Home</a></li>
+            <li role="presentation"><a href="/virion/data/">Data</a></li>
+            <li role="presentation"><a href="/virion/about/">About</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Antioxidant Proteins Predictor</h3>
+        <h3 class="text-muted">Virion Proteins Predictor</h3>
       </div>
       {% endblock header %}
 
 
 
-    <form enctype="multipart/form-data" action="/get/" method="POST">
+    <form enctype="multipart/form-data" action="/virion/result/" method="POST">
         {% block content %}
         <div class="jumbotron">
 {#          <h2>A Neural Network Cancerlectins Predictor</h2>#}
-            <p class="lead"><small>Enter the query protein sequences in FASTA format (<a href="/example/">Example</a>)</small></p>
-            <textarea class="form-control" name='userinput' rows="15"></textarea>
+            <p class="lead"><small>Enter the query protein sequences in FASTA format (<a href="/virion/example/">Example</a>)</small></p>
+            <textarea class="form-control" name='virion' rows="15"></textarea>
             <br>
             <p><input class="btn btn-lg btn-success" type="submit" value="Submit" id="button_submit" ></p>
         </div>
@@ -65,7 +65,7 @@
     </form>
 
 
-    <p align="center" role="presentation"><a class="link" href="/home/">Close</a></p>
+    <p align="center" role="presentation"><a class="link" href="/">Close</a></p>
 
       {% block footer %}
       <footer class="footer">
@@ -82,5 +82,5 @@
 
     <script src="{{ url_for('static', filename='assets/js/ie10-viewport-bug-workaround.js') }}"></script>
 
-  </body>>
+  </body>
 </html>

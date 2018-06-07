@@ -1,6 +1,8 @@
 from flask import render_template, request
 from FlaskApp import app
 from FlaskApp.models.antioxidant import t_sne
+import os
+
 
 
 @app.route('/IDAod/', methods=['POST', 'GET'])
@@ -54,7 +56,7 @@ def antioxidant_non_antioxidant():
 @app.route('/IDAod/result/', methods=['POST', 'GET'])
 def antioxidant_result():
     if request.method == "POST":
-        with open(r'/var/www/FlaskApp/input_data/antioxidant.txt', 'w') as f:
+        with open("/var/www/FlaskApp/input_data/antioxidant.txt", 'w') as f:
             f.write(request.form['antioxidant'])
 
         if request.form["antioxidant"][0] == '>':

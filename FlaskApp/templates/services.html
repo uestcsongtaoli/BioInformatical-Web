@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+<head>
+     <title>{% block title %}Bioinformatics{% endblock title %}</title>
+</head>
+<body>
+    {% block content %}
+        <div class="jumbotron">
+
+            <div class="panel panel-default">
+                <div class="panel-heading"><a href="/IDAod/"><h3><strong>IDAod</strong></h3></a></div>
+                <div class="panel-body">
+                    <p>some description some description some description some description some description</p>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading"><a href="/bacteriophage/"><h3><strong>PhagePred</strong></h3></a></div>
+                <div class="panel-body">
+                    <p align="left">We proposed a new method to predict phage virion proteins using Multinomial
+                        Naive Bayes classification model based on discrete feature generated from g-gap feature tree.
+                    </p>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading"><a href="/virion/"><h3><strong>Virion</strong></h3></a></div>
+                <div class="panel-body">
+                    <p>some description some description some description some description some description</p>
+                </div>
+
+            </div>
+        </div>
+    {% endblock content %}
+</body>

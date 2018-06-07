@@ -9,9 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
-    <title>{% block title %}A Predictor{% endblock title %}</title>
-
-
+    <title>{% block title %}Bioinformatics{% endblock title %}</title>
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -34,38 +32,35 @@
   <body>
 
     {% block container %}
-    <div class="container">
+        <div class="container">
+            {% block header %}
+                <div class="headImg"><img src="{{ url_for('static', filename="images/homelogo.png") }}" height="80%"></div>
+                  <nav>
+                     <ul class="nav nav-tabs nav-pills nav-justified">
+                        <li role="presentation"><a href="/"><h4><strong>Home</strong></h4></a></li>
+                        <li role="presentation"><a href="/about/"><h4><strong>Research</strong></h4></a></li>
+                        <li role="presentation"><a href="/services/"><h4><strong>Services</strong></h4></a></li>
+                        <li role="presentation"><a href="/"><H4><strong>People</strong></H4></a></li>
+                        <li role="presentation"><a href="/contact/"><h4><strong>Contact</strong></h4></a></li>
+                     </ul>
+                  </nav>
+            {% endblock header %}<br>
 
-    <form enctype="multipart/form-data" action="/get/" method="POST">
-        {% block content %}
-        <div class="jumbotron">
-{#          <h2>A Neural Network Cancerlectins Predictor</h2>#}
-            <p class="lead"><small>Enter the query protein sequences in FASTA format (<a href="/example/">Example</a>)</small></p>
-            <textarea class="form-control" name='userinput' rows="15"></textarea>
-            <br>
-            <p><input class="btn btn-lg btn-success" type="submit" value="Submit" id="button_submit" ></p>
+            {% block content %}
+            {% endblock content %}
+
+
+          {% block footer %}
+              <footer class="footer">
+                <p>&copy; 2017 Web Science Center,&nbsp;
+                <a class="grey-text text-lighten-3" href="http://www.ccse.uestc.edu.cn/">Computer Science and Engineering School</a>,&nbsp;
+                <a class="grey-text text-lighten-3" href="http://www.uestc.edu.cn/">UESTC</a>
+                </p>
+              </footer>
+          {% endblock footer %}
+
         </div>
-        {% endblock content %}
-
-    </form>
-
-
-    <p align="center" role="presentation"><a class="link" href="/">Back to home</a></p>
-
-      {% block footer %}
-      <footer class="footer">
-        <p>&copy; 2017 Web Science Center,&nbsp;
-        <a class="grey-text text-lighten-3" href="http://www.ccse.uestc.edu.cn/">Computer Science and Engineering School</a>,&nbsp;
-        <a class="grey-text text-lighten-3" href="http://www.uestc.edu.cn/">UESTC</a>
-        </p>
-      </footer>
-      {% endblock footer %}
-
-    </div>
     {% endblock container %}
-
-
     <script src="{{ url_for('static', filename='assets/js/ie10-viewport-bug-workaround.js') }}"></script>
-
   </body>
 </html>

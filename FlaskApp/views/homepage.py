@@ -14,15 +14,28 @@ def internal_server_error(e):
 
 @app.route('/', methods=['POST', 'GET'])
 def home():
-    try:
         return render_template("homepage.html")
-    except Exception as e:
-        return(str(e))
 
 
 @app.route('/about/')
 def home_about():
     try:
         return render_template("about.html")
+    except Exception as e:
+        return(str(e))
+
+
+@app.route('/contact/')
+def home_contact():
+    try:
+        return render_template("contact.html")
+    except Exception as e:
+        return(str(e))
+
+
+@app.route('/services/')
+def services():
+    try:
+        return render_template("services.html")
     except Exception as e:
         return(str(e))
