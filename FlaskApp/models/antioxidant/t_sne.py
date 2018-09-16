@@ -8,18 +8,18 @@ from sklearn.manifold import TSNE
 from sklearn.externals import joblib
 from FlaskApp.models.antioxidant.dataRead import testSample_generateFeature
 from sklearn import svm
-
+from keras import backend as K
 #############################################
 ###获取训练好模型的倒数第二层权重，经t-sne降维后，输入到SVM训练
 ###########################################
 
-def result():
-    print('runing t-sne for the output of last 2 full connected layer')
+def result(test_data_path):
+    # print('runing t-sne for the output of last 2 full connected layer')
     pathM = r'/var/www/FlaskApp/FlaskApp/models/antioxidant/antioxidant_NoU/models/model_1.json'
     pathW = r"/var/www/FlaskApp/FlaskApp/models/antioxidant/antioxidant_NoU/models/modelWeights_1.h5"
-    model = loadModel(pathM, pathW)
-    print("load model success")
-    layers = {}
+
+    # print("predict_model1", model.predict(np.random.randint(2, size=(2, 800))))
+    # print("load model success")
 
     ####获取中间层输出
     paths = {}
@@ -29,11 +29,13 @@ def result():
     paths["gap1Nocancer"] = r'/var/www/FlaskApp/FlaskApp/models/antioxidant/antioxidant_NoU/gap1nonanti.csv'
     trainArray, label = mixGap01(0, paths)
 
-    pathTest = "/var/www/FlaskApp/input_data/antioxidant.txt"
+    pathTest = test_data_path
     pathMeanVar = r"/var/www/FlaskApp/FlaskApp/models/antioxidant/antioxidant_NoU/train_mean_var.csv"
     testArray = testSample_generateFeature(pathTest, pathMeanVar)
 
     arrayAll = np.append(trainArray, testArray, axis=0)
+
+    model = loadModel(pathM, pathW)
 
     layers = {}
     for i in range(9):  # [0,8]
@@ -45,23 +47,28 @@ def result():
         for j in range(i + 1):  # [0,5]层
             modelPart.add(layers[j])
 
-        sgd = SGD(lr=0.0025, decay=1e-6, momentum=0.6, nesterov=True)  # lr:learning rate,as small as possible
-        modelPart.compile(loss='binary_crossentropy', optimizer=sgd, metrics=['accuracy'])
-        modelPart.fit(trainArray, np.zeros((trainArray.shape[0], 50)), epochs=3)
-        print("部分模型训练成功...")
-        hidden = modelPart.predict(arrayAll)
-        print("中间层结果输出...hidden")
-        print("X_tsne------------------")
+    sgd = SGD(lr=0.0025, decay=1e-6, momentum=0.6, nesterov=True)  # lr:learning rate,as small as possible
+    modelPart.compile(loss='binary_crossentropy', optimizer=sgd, metrics=['accuracy'])
+    modelPart.fit(trainArray, np.zeros((trainArray.shape[0], 50)), epochs=3)
+    # print("部分模型训练成功...")
+    hidden = modelPart.predict(arrayAll)
+    # print("中间层结果输出...hidden")
+    print("X_tsne------------------")
+    K.clear_session()
 
-        X_tsne = TSNE(learning_rate=100, n_iter=1500).fit_transform(hidden)
+    # X_tsne = TSNE(learning_rate=100, n_iter=1500).fit_transform(hidden)
+    tsne_modle = TSNE(learning_rate=1000, n_iter=250)
+    print("t_sne_modle loading")
+    X_tsne = tsne_modle.fit_transform(hidden)
+    print("t_sne over")
 
-        # 训练、调参过程
-        '''
-        #取出所有数据(1805)经t-sne降维后的输出X_tsne，放入SVM作十折交叉验证（每次均shuffle data）
-        class_weight = {0:5,1:1}
-        svm_10fold(min_X_tsne, label,0.1, 2, class_weight)
-        '''
-        '''
+    # 训练、调参过程
+    '''
+    #取出所有数据(1805)经t-sne降维后的输出X_tsne，放入SVM作十折交叉验证（每次均shuffle data）
+    class_weight = {0:5,1:1}
+    svm_10fold(min_X_tsne, label,0.1, 2, class_weight)
+    '''
+    '''
     #保存所有训练数据训练的SVM模型
     label2=label.reshape([1801])
     class_weight = {0:5,1:1}
@@ -74,8 +81,15 @@ def result():
     # 加载SVM模型
     model_svm = joblib.load(r"/var/www/FlaskApp/FlaskApp/models/antioxidant/antioxidant_NoU/svmmodel.m")
     pred_result = []
-    for i in model_svm.predict(hidden_testArray):
-        pred_result.append(int(i))
-
-
+    pred_label = []
+    for i in model_svm.predict_proba(hidden_testArray):
+        pred_result.append(i)
+    # for i in model_svm.predict(hidden_testArray):
+    #     pred_label.append(i)
+    # print(pred_label)
+    # print(pred_result)
     return pred_result
+
+
+if __name__ == "__main__":
+    result(r'/var/www/FlaskApp/FlaskApp/models/antioxidant/antioxidant_NoU/anti.txt')

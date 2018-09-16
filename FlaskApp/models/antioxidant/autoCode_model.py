@@ -12,8 +12,8 @@ import theano
 ##读取数据、保存数据路径自定义
 ###########################################
 def mixGap01(mode ,paths):
-    print("----------------------------------------")
-    print('将数据gap0,gap1合并作为特征....')
+    # print("----------------------------------------")
+    # print('将数据gap0,gap1合并作为特征....')
     if(mode == 0):
 
         gap0Cancer = paths["gap0Cancer"]
@@ -44,7 +44,7 @@ def mixGap01(mode ,paths):
     #标签
     n1 = cancerArray.shape[0]
     n2 = noCancerArray.shape[0]
-    print('cancer 样本数：%d, noCancer 样本数：%d'%(n1,n2))
+    # print('cancer 样本数：%d, noCancer 样本数：%d'%(n1,n2))
     label1 = np.zeros((n1,1))           #标签   cancer:0,no_cancer:1
     label2 = np.ones((n2,1))
     label = np.concatenate( (label1, label2) )
@@ -236,4 +236,5 @@ def compareWeight( encode, decode ):
     '''
 if(__name__ =="__main__"):
     #runAutoCode()
-    config_run()
+    # config_run()
+    pass

@@ -1,11 +1,8 @@
 from flask import render_template, request
 from FlaskApp.models.bacteriophage import multinomialNB
 from FlaskApp import app
-import os
-import sys
-from flask import flash, redirect, url_for
-from werkzeug.utils import secure_filename
-from FlaskApp.views.forms import FileForm
+from FlaskApp.views.common_function import txt_normal, \
+    get_seq_name, four_digit, the_first_line
 
 
 # absolute_path = os.path.abspath('.')
@@ -65,30 +62,33 @@ def bact_result():
     if request.method == "POST":
         train_data_path = "/var/www/FlaskApp/FlaskApp/models/bacteriophage/data/"
         test_save_data_path = "/var/www/FlaskApp/FlaskApp/models/bacteriophage/test_data_save/"
-        # print(request.files['file'])
-        # print(not request.files['file'])
-        # print(request.form["bacteriophage"])
-
         if request.form["bacteriophage"]:
+            condition = False
             with open("/var/www/FlaskApp/input_data/bacteriophage.txt", 'w') as f:
-                f.write(request.form['bacteriophage'].replace('', ''))
-
-            if request.form["bacteriophage"][0] == '>':
-                test_data_path = "/var/www/FlaskApp/input_data/bacteriophage.txt"
-                targets = multinomialNB.train_test(train_data_path, test_data_path, test_save_data_path)
+                f.write(request.form['bacteriophage'])
+            # 转换数据格式，变成一个新的文件
+            test_data_path = "/var/www/FlaskApp/input_data/bacteriophage.txt"
+            txt_normal(test_data_path)
+            class_prob =[]
+            # 如果文件内有内容，继续
+            first_line = the_first_line(test_data_path)
+            if first_line == '\n':
+                return render_template('bacteriophage/result.html', class_prob=class_prob, condition=condition)
             else:
-                targets = "The sequences you input should be in FASTA format."\
-                          "And there should not be any space line on the top of textarea"
+                condition = True
+                seq_name = get_seq_name(test_data_path)
+                targets = multinomialNB.train_test(train_data_path, test_data_path, test_save_data_path)
 
-        # if request.files['file']:
-        #     file = request.files['file']
-        #     file.save(absolute_path + '/input_data/test.txt')
-        #     test_data_path = absolute_path + '/input_data/test.txt'
-        #     targets = multinomialNB.train_test(train_data_path, test_data_path, test_save_data_path)
+                targets = four_digit(targets)
+                class_prob = enumerate(zip(seq_name, targets), start=1)
 
-        # if request.files['file'] is None and request.form["bacteriophage"] is None:
-        #     targets = "You may need to enter query sequences in the textarea or upload a file for batch prediction. "
+                return render_template('bacteriophage/result.html', class_prob=class_prob, condition=condition)
 
-        return render_template('bacteriophage/result.html', sequence=targets)
     return render_template('bacteriophage/result.html')
+
+
+
+
+
+
 

@@ -86,7 +86,7 @@ def train_fit(data, label):
 def predict(test, threshold, idx_score, model):
 
     test_x = update_threshold(test, threshold, idx_score)
-    test_pred = model.predict(test_x)
+    test_pred = model.predict_proba(test_x)
 
     return test_pred
 

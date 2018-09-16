@@ -1,15 +1,37 @@
 {% extends 'antioxidant/layout.html' %}
-
 <head>
     <title>{% block title %}result{% endblock title %}</title>
 </head>
 
 {% block content %}
   <div class="jumbotron">
-    <h2>Predicting Outcomes</h2>
-      <p align="left" class="lead">The Antioxidant class label is 0. In contrast, the non-antioxidant is 1.</p>
-      <p align="center" class="style13">{{ sequence }}</p>
-{#      <textarea class="form-control" name='userinput' rows="15">{{sequence}}</textarea>#}
+        {% if condition %}
+            <table style="width:100%" id="t01">
+                <caption><h3>Predicting Outcomes</h3></caption>
+                <tr>
+                    <th rowspan="2" id="t01">Number</th>
+                    <th rowspan="2" id="t01">Sequences</th>
+                    <th colspan="2" id="t01">Probability</th>
+                </tr>
+                <tr>
+                    <th id="t01">antioxidant protein</th>
+                    <th id="t01">non-antioxidant protein</th>
+                </tr>
+                {% for num, item in class_prob %}
+                    <tr>
+                        <td id="t01">{{ num }}</td>
+                        <td id="t01">{{ item[0] }}</td>
+                        <td id="t01">{{ item[1][1] }}</td>
+                        <td id="t01">{{ item[1][0] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p align="left" class="style13">
+                1.The sequences you input should be in FASTA format.<br>
+                2.Please refer to the <a href="/IDAod/example/">Example</a>
+            </p>
+        {% endif %}
       <br>
       <p><a class="btn btn-lg btn-success" href="/IDAod/" role="button" name="back"> Back </a></p>
   </div>

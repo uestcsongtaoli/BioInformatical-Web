@@ -21,8 +21,10 @@ maxAcc = 0
 maxRecall = 0
 maxAccItenum = -1
 maxRecallItenum = -1
+
+
 def trainModel_10Fold(dict_confi, data, label, writer, itenum ,autoConfigure):
-    global maxAcc,maxRecall,maxAccItenum,maxRecallItenum
+    global maxAcc, maxRecall, maxAccItenum, maxRecallItenum
 
     print("------------------------------------------")
     print("10-fold cross validation for training... ")

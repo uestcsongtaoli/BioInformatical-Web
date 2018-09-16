@@ -2,7 +2,7 @@
 
 import numpy as np
 import csv
-
+import tensorflow as tf
 ##全局变量
 lettersAll = set()
 ##读取氨基酸序列中的所有氨基酸种类,返回所有字母和提取的氨基酸序列
@@ -80,6 +80,8 @@ def testSample_generateFeature(path_test,path_meanVar):
     feature_names=readFeature(path_feature)
     letters,lines_extract_test=readLetter(path_test)
 
+    # print(letters-set20)
+
     if(letters-set20):#20种字母以外的字母,则退出程序
         print("test sample contains Illegal letter!")
         os._exit(1)
@@ -120,8 +122,11 @@ from keras.optimizers import SGD
 def loadModel(pathModel, pathw):
     model = model_from_json(open(pathModel).read())
     model.load_weights(pathw)
+    model._make_predict_function()
+    print("predict_model2", model.predict(np.random.randint(2, size=(2, 800))))
     sgd = SGD(lr=0.0025, decay=1e-6, momentum=0.6, nesterov=True) #lr:learning rate,as small as possible
     model.compile(loss='binary_crossentropy', optimizer=sgd, metrics=['accuracy'])
+
     return model
 
 

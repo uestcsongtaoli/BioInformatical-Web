@@ -19,14 +19,25 @@
     <!-- Custom styles for this template -->
     <link href="{{ url_for('static', filename='jumbotron-narrow.css') }}" rel="stylesheet">
 
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
+      <style>
+    table#t01, th#t01, td#t01 {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    th#t01, td#t01 {
+        padding: 5px;
+
+    }
     .link { font-size:24px}
     </style>
+  {% block style %}{% endblock style %}
   </head>
 
   <body>
